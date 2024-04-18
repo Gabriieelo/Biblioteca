@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Modificacion de autores</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">
+            <form th:action="@{/autor/modoficar/__${autor.id}__}"  method="POST" class="text-center p-4" style=" border-radius: 20px; display: flex; flex-direction: column">
+
+                <input hidden th:value="${id}" name="id">
+                <div class="form-group my-3">
+                    <label class="mb-2">Cargar Autores</label>
+                    <input th:value="${autor.name}" type="text" class="form-control" name="name">
+                    <input th:value="${autor.edad}" type="number" class="form-control" name="edad">   
+                </div>
+                <button type="submit" class="btn btn-primary my-3 botones">Actualizar</button>  
+            </form>
+        </div>
+    </body>
+</html>

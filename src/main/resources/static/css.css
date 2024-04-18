@@ -1,0 +1,20 @@
+.nav{
+    height:50px;
+    width: 100%;
+    padding:0 20px;
+}
+.nav  .nav.btn{
+    display: none;
+}
+@media (max-width:600px){
+    .nav .nav-btn{
+        display:incline-block;
+    }
+    .nav #nav-check:not(:checked) ~ .nav_links{
+        height: 0px;
+    }
+    .nav #nav-check:checked ~ .nav-links{
+        height: 250px;
+        overflow-y: hidden;
+    }
+}

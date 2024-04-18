@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Panel</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <style>
+            body {
+                background-color: darkseagreen; /* Color violeta */
+            }
+
+            nav {
+                background-color:  antiquewhite; /* Color azul */
+            }
+            nav a {
+                color: #fff; /* Color blanco */
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/autor/registrar">Registrar autor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/autor/lista">Lista de autores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/libro/registrar">Registrar libro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/libro/lista">Lista de libros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/editorial/registrar">Registrar editorial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/editorial/lista">Lista de editoriales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/usuarios">Lista de usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/perfil">Editar perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Cerrar sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>    
+        </nav>
+        <br>
+        
+        <p class="" style="border-radius: 20px; display: flex; flex-direction: column; font-size: 24px; font-family: 'Arial', sans-serif;" th:if="${session.usuarioSession !=null}" th:text="'  Hola de nuevo ' + ${session.usuarioSession.nombre}"></p>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Registro Autor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <style>
+            body {
+                background-color: darkseagreen; 
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="container">
+                <form action="/autor/registrar" method="POST" class="text-center p-4" style=" border-radius: 20px; display: flex; flex-direction: column">
+                    <h1>Registro de autores</h1>
+                    <br>
+                    <input class="btn" type="text" name="nombre" placeholder="Nombre del Autor" style="padding: 10px; box-shadow: 2px 5px 10px black; border-radius: 10px; border: none; background-color: burlywood">
+                    <br>
+                    <input class="btn" type="text" name="edad" placeholder="Edad del Autor" style="padding: 10px; box-shadow: 2px 5px 10px black; border-radius: 10px; border: none; background-color: burlywood">
+                    <br>
+                    <button type="submit" class="form-group text-center p-3" style="background-color: burlywood; border-radius: 20px">Guardar</button>
+                    <br>
+                    <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
+                        <div class="card-body">
+                            <h5 class="card-title">Error</h5>
+                            <p class="card-text" th:text="${error}"></p>
+                        </div>
+                    </div>
+                </form>
+                <a href="/inicio" style="display: flex; justify-content: center;">
+                    <button type="submit" class="form-group text-center p-3" style="background-color: burlywood; border-radius: 15px">Volver</button>
+                </a>
+
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </body>
+</html>

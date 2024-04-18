@@ -1,0 +1,50 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Listas de usuarios</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+            body {
+                background-color: darkseagreen; 
+            }
+        </style>
+    </head>
+    <body>
+        <br>
+        <br>
+        <h1 style="text-align: center;">Tabla de Usuarios</h1>
+        <br>
+            <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">id del Usuario</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Foto de Perfil</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col" sec:authorize="hasRole('ADMIN')">Cambiar Rol</th>
+                    <th scope="col" sec:authorize="hasRole('ADMIN')">Modificar</th>
+                </tr>
+            </thead>
+            <tbody th:each="usuario:${usuarios}">
+                <tr>
+                    <th scope="row" th:text="${usuario.id}"></th>
+                    <td th:text="${usuario.nombre}"></td>
+                    <td>
+                        <a><img th:if="${usuario.imagen !=null}" th:src="@{/imagen/perfil/__${usuario.id}__}"></a>
+                    </td>
+                    <td th:text="${usuario.rol}"></td>
+                    <td>
+                        <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/modificarRol/__${usuario.id}__}" ><button type="submit" class="btn btn-secondary m-3 " style="padding: 2px; box-shadow: 1px 4px 8px black; border-radius: 10px">cambiar</button></a>
+                    </td>
+                    <td>
+                        <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/modificar/__${usuario.id}__}" ><button type="submit" class="btn btn-secondary m-3 " style="padding: 2px; box-shadow: 2px 5px 10px black; border-radius: 10px">modificar</button></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/inicio" style="display: flex; justify-content: center; align-items: center;">
+            <button type="submit" class="form-group text-center p-3" style="background-color: #add8e6; border-radius: 8px">Volver</button>
+        </a>
+    </body>
+</html>
